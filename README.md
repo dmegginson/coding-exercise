@@ -4,7 +4,9 @@ Fork this repository, answer the questions in whichever form you want (e.g. `.tx
 
 ## Question 1 - How big is this file?
 
-The following screenshot is of a file opened in a text editor, with MIME  type `text/plain`, and is seemingly small. What is the file's size in `bytes`?
+The following screenshot is of a file opened in a text editor, with MIME  type `text/plain`, and is seemingly small. What is the file's size in `bytes`? 
+
+5 bytes, 1 byte for each character including /r and /n.
 
 ![alt text](how-big-is-this-file.png)
 
@@ -17,6 +19,38 @@ Value: 'red', Action: paintItRed()
 Value: 'green', Action: paintItGreen()
 Value: 'blue', Action: paintItBlue()
 Value: 'default', Action: paintIt()
+```
+
+```
+def paintItRed():
+  # paint it red
+  return
+
+def paintItGreen():
+  # paint it green
+  return
+
+def paintItBlue():
+  # paint it blue
+  return
+
+def paintIt():
+  # paint it
+  return
+
+def paintSelection(i):
+  switcher = {
+    'red': paintItRed,
+    'green': paintItGreen,
+    'blue': paintItBlue
+  }
+  func = switcher.get(i, paintIt)
+  return func()
+
+paintSelection('red')
+paintSelection('blue')
+paintSelection('green')
+paintSelection('black')
 ```
 
 ## Question 3 - StackOverflow and Java
