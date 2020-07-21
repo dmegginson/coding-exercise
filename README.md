@@ -42,6 +42,8 @@ public static String humanByteCount(long bytes, boolean si) {
 
 Can you find the bug?
 
+I put code in java-bug/JavaBug.java that has the bug fix, but I believe the bug is in the assignment of unit. When si is true, unit should 1024 instead of 1000.
+
 ## Question 4 - Binary File Analysis
 
 Binary file analysis takes various forms. Write a Dockerized program, in the language of your choice, that finds all the printable `strings` in an input binary file and prints them out to `stdout`.
