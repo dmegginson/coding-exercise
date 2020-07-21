@@ -4,7 +4,9 @@ Fork this repository, answer the questions in whichever form you want (e.g. `.tx
 
 ## Question 1 - How big is this file?
 
-The following screenshot is of a file opened in a text editor, with MIME  type `text/plain`, and is seemingly small. What is the file's size in `bytes`?
+The following screenshot is of a file opened in a text editor, with MIME  type `text/plain`, and is seemingly small. What is the file's size in `bytes`? 
+
+I believe the answer is 5 bytes. 1 bytes for each character '0', '.', and '1' and 1 byte each for the carriage return '/r' and the new line '/n' characters. I also double checked this by creating a text file and making its contents match the image and verified that according the OS the file size was 5 bytes.
 
 ![alt text](how-big-is-this-file.png)
 
@@ -18,6 +20,8 @@ Value: 'green', Action: paintItGreen()
 Value: 'blue', Action: paintItBlue()
 Value: 'default', Action: paintIt()
 ```
+
+The python file that implements the switching logic can be found in python-switch directory. I made use of functions and a switcher in order to achieve the switching logic.
 
 ## Question 3 - StackOverflow and Java
 
@@ -37,6 +41,8 @@ public static String humanByteCount(long bytes, boolean si) {
 ```
 
 Can you find the bug?
+
+I put code in java-bug/JavaBug.java that has the bug fix, but I believe the bug is in the assignment of unit. When si is true, unit should 1024 instead of 1000.
 
 ## Question 4 - Binary File Analysis
 
@@ -65,6 +71,20 @@ $ Corresponding Output:
   ...
 ```
 
+For this problem, I used the linux function strings which is defined in binutils. The Dockerfile can be found in binary-strings and I built my image using the following command:
+
+```
+docker build -t binary-strings-image -f Dockerfile .
+```
+
+when executed from within the App directory. To run the container, I used the following command
+
+```
+docker run -it binary-strings-image strings /bin/ls
+```
+
+which should output all printable strings.
+
 ## Question 5 - Circular Prime Numbers
 
 A very interesting mathematical concept is that of circular prime numbers. A circular prime number is a prime number `p` that, when rearraging its digits, all the possible combinations are also prime.
@@ -81,3 +101,17 @@ $ docker run -it $YOUR_DOCKER_IMAGE circular_primes
 $ Corresponding Output:
   2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, ...
 ```
+
+The application written in C# using .NET Core 3.1 can be found in the circular-primes directory. The Dockerfile is in circular-primes/App and should be able to be built using:
+
+```
+docker build -t circular-prime-image -f Dockerfile .
+```
+
+when executed from within the App directory. To run the container, I used the following command
+
+```
+docker run -it circular-prime-image
+```
+
+which should output all of the circular primes between 1 and 50000.
